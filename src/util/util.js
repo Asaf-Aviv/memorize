@@ -13,16 +13,26 @@ const fruits = [
   'watermelon', 'watermelon',
 ];
 
+let fruitsCopy = null;
+
 const pickRandomFruit = () => {
-  const randomItemIndex = parseInt(Math.random() * fruits.length, 10);
-  const fruit = fruits.splice(randomItemIndex, 1)[0];
+  const randomItemIndex = parseInt(Math.random() * fruitsCopy.length, 10);
+  const fruit = fruitsCopy.splice(randomItemIndex, 1)[0];
   return fruit;
 };
 
-export const createGrid = () => [...Array(20)].map(() => ({
-  name: pickRandomFruit(),
-  id: uuid(),
-  completed: false,
-}));
+const resetFruitsGrid = () => {
+  fruitsCopy = [...fruits];
+};
+
+export const createGrid = () => {
+  resetFruitsGrid();
+
+  return [...Array(20)].map(() => ({
+    name: pickRandomFruit(),
+    id: uuid(),
+    completed: false,
+  }));
+};
 
 export const z = '';

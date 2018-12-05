@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { GameContext } from './App';
 
-
-const Tile = ({ fruit, choosable, completed }) => {
-  const { chooseFruit } = useContext(GameContext);
+const Tile = ({
+  fruit, choosable, completed, chooseFruit,
+}) => {
   let classes = 'tile';
   if (completed) classes += ' completed';
   if (!choosable) classes += ' choosen';
@@ -30,6 +29,7 @@ const Tile = ({ fruit, choosable, completed }) => {
 Tile.propTypes = {
   choosable: PropTypes.bool.isRequired,
   completed: PropTypes.bool.isRequired,
+  chooseFruit: PropTypes.func.isRequired,
   fruit: PropTypes.shape({
     name: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
