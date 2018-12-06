@@ -12,10 +12,10 @@ const GameWrapper = () => {
   const [score, setScore] = useState(0);
   const [scoreMultiplier, setScoreMultiplier] = useState(1);
   const [showWinningScreen, setGameOver] = useState(false);
-  const [guesses, incGuesses] = useState(0);
+  const [guesses, setGuesses] = useState(0);
   const [isComboable, setIsComboable] = useState(false);
   const [currentCombo, setCurrentCombo] = useState(0);
-  const [totalCombos, incTotalCombos] = useState(0);
+  const [totalCombos, setTotalCombos] = useState(0);
 
   const matchSound = useRef();
 
@@ -23,16 +23,26 @@ const GameWrapper = () => {
     matchSound.current.play();
   };
 
-  const playGame = () => {
-    setGameOver(false);
+  const initAllStats = () => {
+    setGameState(false);
     setGrid(createGrid());
+    setFruits([]);
+    setScore(0);
+    setScoreMultiplier(1);
+    setGameOver(false);
+    setGuesses(0);
+    setIsComboable(false);
+    setCurrentCombo(0);
+    setTotalCombos(0);
+  };
+
+  const playGame = () => {
+    initAllStats();
     setGameState(true);
   };
 
-  const restartGame = () => {
+  const quitGame = () => {
     setGameState(false);
-    setScore(0);
-    playGame();
   };
 
   const isMatch = chosenFruits => (
@@ -64,7 +74,7 @@ const GameWrapper = () => {
   useEffect(() => {
     if (fruits.length !== 2) return;
 
-    incGuesses(guesses + 1);
+    setGuesses(guesses + 1);
 
     if (!isMatch(fruits)) {
       setIsComboable(false);
@@ -78,7 +88,7 @@ const GameWrapper = () => {
 
     if (isComboable) {
       setCurrentCombo(currentCombo + 1);
-      incTotalCombos(totalCombos + 1);
+      setTotalCombos(totalCombos + 1);
     } else {
       setIsComboable(true);
     }
@@ -98,7 +108,7 @@ const GameWrapper = () => {
 
   return (
     <div className="game-wrapper">
-      <GameMenu isPlaying={isPlaying} playGame={playGame} restartGame={restartGame} />
+      <GameMenu isPlaying={isPlaying} playGame={playGame} quitGame={quitGame} />
       {isPlaying && (
         <GameUI
           grid={grid}
@@ -109,6 +119,7 @@ const GameWrapper = () => {
           guesses={guesses}
           currentCombo={currentCombo}
           totalCombos={totalCombos}
+
         />
       )}
       {showWinningScreen && <GameRecap /> }

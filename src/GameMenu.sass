@@ -1,0 +1,41 @@
+.game-menu
+  height: 100vh
+  background: rgba(0, 0, 0, 0.7)
+  display: none
+  &--open
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 500
+    display: block
+  &__toggler
+    cursor: pointer
+    height: 50px
+    width: 50px
+  &__icon
+    width: 100%
+    height: 100%
+  &__container
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    width: 500px
+    margin: 0 auto
+    height: 100%
+  &__btn
+    outline: none
+    cursor: pointer
+    font-size: 30px
+    font-family: inherit
+    text-transform: uppercase
+    letter-spacing: inherit
+    border: 0
+    margin: 0
+    background: none
+    color: #FFF
+    margin-bottom: 30px
+    transition: color 200ms
+    &:hover
+      color: #1ddaee

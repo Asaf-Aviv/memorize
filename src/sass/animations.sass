@@ -2,3 +2,10 @@
 
 .shadow-drop-2-center
   animation: shadow-drop-2-center 0.2s cubic-bezier(0.175, 0.885, 0.320, 1.275) forwards
+
+.slide-in-elliptic-right-fwd
+	animation: slide-in-elliptic-right-fwd 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
+
+@for $i from 0 through 19
+  .delay-#{$i}
+    animation-delay: calc(30ms * #{$i})

@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Tile = ({
-  fruit, choosable, completed, chooseFruit,
+  fruit, choosable, completed, chooseFruit, index,
 }) => {
-  let classes = 'tile';
+  let classes = `tile slide-in-elliptic-right-fwd delay-${index}`;
   if (completed) classes += ' completed';
   if (!choosable) classes += ' choosen';
 
@@ -30,6 +30,7 @@ Tile.propTypes = {
   choosable: PropTypes.bool.isRequired,
   completed: PropTypes.bool.isRequired,
   chooseFruit: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
   fruit: PropTypes.shape({
     name: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
