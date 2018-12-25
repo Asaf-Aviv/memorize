@@ -5,6 +5,8 @@ import GameRecap from './GameRecap';
 import { createGrid } from './util/util';
 import MatchSound from './assets/sounds/match.wav';
 
+import './GameWrapper.sass';
+
 const GameWrapper = () => {
   const [isPlaying, setGameState] = useState(false);
   const [grid, setGrid] = useState([]);

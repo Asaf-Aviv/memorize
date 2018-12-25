@@ -13,8 +13,8 @@ const GameUI = ({
     <header className="game__header">
       <div className="scoreboard">
         <span className="scoreboard__item">{`Score: ${score}`}</span>
-        <span className="scoreboard__item">{`Score Multiplier: ${scoreMultiplier}`}</span>
-        <span className="scoreboard__item">{`guesses: ${guesses}`}</span>
+        <span className="scoreboard__item">{`Score Multiplier: x${scoreMultiplier}`}</span>
+        <span className="scoreboard__item">{`Guesses: ${guesses}`}</span>
         <span className="scoreboard__item">{`Combo: ${currentCombo}`}</span>
         <span className="scoreboard__item">{`Total Combos: ${totalCombos}`}</span>
       </div>
