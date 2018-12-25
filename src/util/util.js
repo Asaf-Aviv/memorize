@@ -16,8 +16,8 @@ const fruits = [
 let fruitsCopy = null;
 
 const pickRandomFruit = () => {
-  const randomItemIndex = parseInt(Math.random() * fruitsCopy.length, 10);
-  const fruit = fruitsCopy.splice(randomItemIndex, 1)[0];
+  const randomFruitIndex = parseInt(Math.random() * fruitsCopy.length, 10);
+  const fruit = fruitsCopy.splice(randomFruitIndex, 1)[0];
   return fruit;
 };
 

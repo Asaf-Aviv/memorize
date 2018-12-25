@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import GameMenu from './GameMenu';
-import GameUI from './GameUI';
-import GameRecap from './GameRecap';
-import { createGrid } from './util/util';
-import MatchSound from './assets/sounds/match.wav';
+import GameMenu from '../GameMenu';
+import GameUI from '../GameUI';
+import GameRecap from '../GameRecap';
+import { createGrid } from '../../util/util';
+import MatchSound from '../../assets/sounds/match.wav';
 
 import './GameWrapper.sass';
 
@@ -37,6 +37,12 @@ const GameWrapper = () => {
     setCurrentCombo(0);
     setTotalCombos(0);
   };
+
+  const recapStats = () => ({
+    score,
+    guesses,
+    totalCombos,
+  });
 
   const playGame = () => {
     initAllStats();
@@ -124,7 +130,7 @@ const GameWrapper = () => {
 
         />
       )}
-      {showWinningScreen && <GameRecap /> }
+      {showWinningScreen && <GameRecap stats={recapStats()} playAgain={playGame} /> }
       <audio ref={matchSound} src={MatchSound} />
     </div>
   );

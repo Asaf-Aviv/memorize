@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FruitPropTypes } from './PropTypes/propTypes';
-import Tile from './Tile';
+import { FruitPropTypes } from '../../PropTypes/propTypes';
+import Tile from '../Tile/Tile';
 
 import './GameUI.sass';
 

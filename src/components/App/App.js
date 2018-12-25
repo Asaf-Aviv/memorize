@@ -1,5 +1,5 @@
 import React from 'react';
-import GameWrapper from './GameWrapper';
+import GameWrapper from '../GameWrapper';
 
 import './App.sass';
 

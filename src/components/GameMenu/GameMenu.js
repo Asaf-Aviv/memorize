@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import GameMenuButton from './GameMenuButton';
-import MenuSound from './assets/sounds/menu.wav';
-import BackSound from './assets/sounds/back.wav';
+import GameMenuButton from '../GameMenuButton';
+import MenuSound from '../../assets/sounds/menu.wav';
+import BackSound from '../../assets/sounds/back.wav';
 
 import './GameMenu.sass';
 
@@ -27,7 +27,7 @@ const Menu = ({ isPlaying, playGame, quitGame }) => {
   return (
     <>
       <div className="game-menu__toggler" onClick={toggleMenuHandler}>
-        <img className="game-menu__icon" alt="menu icon" src={require('./assets/menu/menu.svg')} />
+        <img className="game-menu__icon" alt="menu icon" src={require('../../assets/menu/menu.svg')} />
       </div>
       <div
         className={`game-menu
@@ -51,8 +51,8 @@ const Menu = ({ isPlaying, playGame, quitGame }) => {
             onMouseEnter={playMenuSound}
           />
           <GameMenuButton
-            text="Options"
-            onClick={playGame}
+            text="Close Menu"
+            onClick={toggleMenuHandler}
             onMouseEnter={playMenuSound}
           />
           <GameMenuButton

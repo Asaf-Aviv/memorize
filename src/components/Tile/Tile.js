@@ -19,7 +19,7 @@ const Tile = ({
         <img
           className="fruit__img"
           alt={fruit.name}
-          src={require(`./assets/fruits/${fruit.name}.svg`)}
+          src={require(`../../assets/fruits/${fruit.name}.svg`)}
         />
       </figure>
     </div>
