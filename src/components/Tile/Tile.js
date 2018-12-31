@@ -15,11 +15,12 @@ const Tile = ({
       data-fruit={fruit.name}
       onClick={choosable && !completed ? () => chooseFruit(fruit) : null}
     >
-      <figure className="fruit__figure">
+      <figure className="fruit__figure" onDragStart={() => false}>
         <img
           className="fruit__img"
           alt={fruit.name}
           src={require(`../../assets/fruits/${fruit.name}.svg`)}
+          onDragStart={e => e.preventDefault()}
         />
       </figure>
     </div>
